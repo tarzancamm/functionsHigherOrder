@@ -62,8 +62,9 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 // CODE HERE
-const totalPopulation = populations.reduce(/* Provide Your Callback Here */)
+const totalPopulation = populations.reduce((prevValue, curValue) => prevValue + curValue)
 
+console.log(totalPopulation)
 
 
 ////////// PROBLEM 4 //////////
@@ -89,27 +90,14 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 // CODE HERE
 
 
+function callback(monster) {
+  return monster.CP > 200
+}
 
+const myStrongest = monstersInYourPocket.filter(callback)
 
+console.log(myStrongest)
 
-
-
-
-
-
-
-
-
-
-
-
-// function callback(monster) {
-//   return monster.CP > 200
-// }
-
-// const myStrongest = monstersInYourPocket.filter(callback)
-
-// console.log(myStrongest)
 
 ////////// PROBLEM 5 //////////
 
@@ -126,6 +114,10 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 
 // CODE HERE
 
+
+const totalOrderPrice = orders.map(priceAndTax => priceAndTax.price * (1 + priceAndTax.tax))
+
+console.log(totalOrderPrice)
 
 
 ////////// PROBLEM 6 //////////
@@ -145,3 +137,9 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 */
 
 // CODE HERE
+
+
+let bobsTotal = purchases.filter(element => element.owner === 'Bob').reduce((a, b) => a + b.price, 0)
+
+console.log(bobsTotal)
+
